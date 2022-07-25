@@ -4,13 +4,8 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
-# 定时触发编译
-  schedule:
-    - cron: 30 22 * * 4
 
-# 点赞☆Star触发编译
-#  watch:
-#    types: [started]
+
 
 jobs:
   Build_ax6_515_nss:
@@ -44,7 +39,7 @@ jobs:
         REPO_URL: https://github.com/xiangfeidexiaohuo/openwrt-ipq807x
         REPO_BRANCH: 515-dev
       run: |
-        git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        git clone  $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         cp -f ../diy/lean/lean1.sh ./
         chmod +x ./lean1.sh && ./lean1.sh
